@@ -1,0 +1,30 @@
+{
+  "name": "@signed/scribe",
+  "version": "0.1.0",
+  "repository": "https://github.com/signed/scribe.git",
+  "license": "MIT",
+  "keywords": [
+    "slides",
+    "live reload",
+    "reveal.js",
+    "asciidoc",
+    "asciidoctor"
+  ],
+  "bin": "./dist/cli.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@asciidoctor/core": "2.2.0",
+    "@asciidoctor/reveal.js": "4.0.1",
+    "@types/browser-sync": "2.26.1",
+    "@types/fs-extra": "9.0.1",
+    "@types/node": "14.11.2",
+    "browser-sync": "2.26.12",
+    "chokidar": "3.4.2",
+    "fs-extra": "9.0.1",
+    "opener": "1.5.2",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
+  }
+}
