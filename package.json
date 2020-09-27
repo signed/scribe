@@ -1,6 +1,7 @@
 {
   "name": "@signed/scribe",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "Live reload your reveal.js presentation when editing your asciidoc slides",
   "repository": "https://github.com/signed/scribe.git",
   "license": "MIT",
   "keywords": [
