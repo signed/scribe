@@ -22,13 +22,14 @@
   "dependencies": {
     "@asciidoctor/core": "2.2.0",
     "@asciidoctor/reveal.js": "4.0.1",
+    "browser-sync": "2.26.12",
+    "chokidar": "3.4.2",
+    "fs-extra": "9.0.1"
+  },
+  "devDependencies": {
     "@types/browser-sync": "2.26.1",
     "@types/fs-extra": "9.0.1",
     "@types/node": "14.11.2",
-    "browser-sync": "2.26.12",
-    "chokidar": "3.4.2",
-    "fs-extra": "9.0.1",
-    "opener": "1.5.2",
     "typescript": "4.0.3"
   }
 }
