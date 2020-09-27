@@ -12,8 +12,12 @@
     "asciidoctor"
   ],
   "bin": "./dist/cli.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "yarn run build"
   },
   "dependencies": {
     "@asciidoctor/core": "2.2.0",
