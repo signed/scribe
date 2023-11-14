@@ -25,12 +25,12 @@
     "@asciidoctor/reveal.js": "4.1.0",
     "browser-sync": "2.29.3",
     "chokidar": "3.5.3",
-    "fs-extra": "10.1.0"
+    "fs-extra": "11.1.1"
   },
   "devDependencies": {
     "@types/browser-sync": "2.27.4",
-    "@types/fs-extra": "9.0.11",
-    "@types/node": "14.14.41",
+    "@types/fs-extra": "11.0.4",
+    "@types/node": "20.9.0",
     "typescript": "5.2.2"
   }
 }
