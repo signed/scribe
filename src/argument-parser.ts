@@ -6,7 +6,7 @@ export const longFormArgumentFrom = (args: string[], name: string, fallback: str
   return args[found + 1]
 }
 
-export function longFormFlagFrom(args: string[], name: string, fallback: boolean) {
+export const longFormFlagFrom = (args: string[], name: string, fallback: boolean) => {
   const found = args.includes(`--${name}`)
   if (found) {
     return found
