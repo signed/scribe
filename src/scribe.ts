@@ -78,6 +78,8 @@ const writePresentation = (options: ScribeOptions) => {
 export const present = (options: ScribeOptions) => {
   const browserSync = create('presentation')
   const startPath = join(options.base_dir, options.out_dir, 'presentation.html')
+
+  //https://browsersync.io/docs/options#option-server
   browserSync.init({
     logLevel: 'info',
     server: true,
