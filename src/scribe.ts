@@ -1,7 +1,6 @@
 import { join, resolve } from 'node:path'
 import { rmSync } from 'node:fs'
-import type { Asciidoctor } from '@asciidoctor/core'
-import asciidoctorFactory from '@asciidoctor/core'
+import asciidoctorFactory, {type Asciidoctor} from '@asciidoctor/core';
 import * as chokidar from 'chokidar'
 import { create } from 'browser-sync'
 import * as asciidoctorRevealjs from '@asciidoctor/reveal.js'
@@ -12,9 +11,12 @@ export interface ScribeOptions {
   out_dir: string
 }
 
+type ProcessorOptions = Exclude<Parameters<Asciidoctor['convertFile']>[1], undefined>
+type Attributes = Exclude<ProcessorOptions['attributes'], undefined>
+
 // Sets additional document attributes, which override equivalently-named
 // attributes defined in the document unless the value ends with @
-const own: Asciidoctor.Attributes = {
+const own: Attributes = {
   slides: 'slides',
 }
 
@@ -50,7 +52,7 @@ const writePresentation = (options: ScribeOptions) => {
   rmSync(resolve(process.cwd(), options.base_dir, options.out_dir), { force: true, recursive: true })
 
   // https://asciidoctor.org/docs/asciidoctor-revealjs/#reveal-js-options
-  const asciidoctor_reveal_js: Asciidoctor.Attributes = {
+  const asciidoctor_reveal_js: Attributes = {
     revealjsdir: '/node_modules/reveal.js@',
     revealjs_history: true,
     revealjs_theme: Theme.MOON,
@@ -62,7 +64,7 @@ const writePresentation = (options: ScribeOptions) => {
 
   // These are the same as for the ruby version
   // http://asciidoctor.org/docs/user-manual/#ruby-api-options
-  const asciidoctor_options: Asciidoctor.ProcessorOptions = {
+    const asciidoctor_options: ProcessorOptions = {
     safe: 'safe',
     backend: 'revealjs',
     base_dir: resolve(process.cwd(), options.base_dir),
