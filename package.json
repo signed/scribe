@@ -18,7 +18,10 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "yarn run build",
-    "typecheck": "tsc --noEmit"
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit",
+    "present": "tsx src/cli.ts --base-dir example",
+    "nitpick": "yarn test && yarn typecheck"
   },
   "dependencies": {
     "@asciidoctor/core": "2.2.6",
@@ -28,9 +31,13 @@
     "fs-extra": "11.1.1"
   },
   "devDependencies": {
+    "@signed/prettier-config": "0.1.0",
     "@types/browser-sync": "2.27.4",
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.9.0",
-    "typescript": "5.2.2"
+    "prettier": "3.1.0",
+    "tsx": "4.1.2",
+    "typescript": "5.2.2",
+    "vitest": "0.34.6"
   }
 }

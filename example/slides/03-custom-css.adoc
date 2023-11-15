@@ -1,0 +1,4 @@
+[.red.background]
+== Role based background color
+WARNING: this has to be defined in css
+

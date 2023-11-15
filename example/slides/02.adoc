@@ -1,0 +1,9 @@
+== Slide Two
+
+A Great Story
+
+[.notes]
+--
+* tell anecdote
+* make a point
+--

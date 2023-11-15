@@ -1,12 +1,16 @@
 #!/usr/bin/env node
-import { present } from './scribe';
+import {present} from './scribe';
 
-const watch = !process.argv.includes('--no-watch');
-const base_dir = process.cwd();
-const out_dir = './out';
+import {longFormArgumentFrom, longFormFlagFrom} from "./argument-parser";
 
-present({
-    watch,
+const base_dir = longFormArgumentFrom(process.argv, 'base-dir', './')
+const out_dir = longFormArgumentFrom(process.argv, 'out-dir', './out')
+const watch = longFormFlagFrom(process.argv, 'watch', true)
+
+const options = {
     base_dir,
-    out_dir
-});
+    out_dir,
+    watch
+};
+console.table(options)
+present(options);

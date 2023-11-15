@@ -1,8 +1,9 @@
-import type { Asciidoctor } from '@asciidoctor/core';
+import {join, resolve} from 'node:path'
+import type {Asciidoctor} from '@asciidoctor/core';
 import asciidoctorFactory from '@asciidoctor/core';
 import * as chokidar from 'chokidar';
 import * as fs from 'fs-extra';
-import { create } from 'browser-sync';
+import {create} from 'browser-sync';
 import * as asciidoctorRevealjs from '@asciidoctor/reveal.js';
 
 export interface ScribeOptions {
@@ -46,7 +47,7 @@ enum Theme {
 }
 
 const writePresentation = (options: ScribeOptions) => {
-    fs.removeSync(options.out_dir);
+    fs.removeSync(resolve(process.cwd(), options.base_dir, options.out_dir));
 
     // https://asciidoctor.org/docs/asciidoctor-revealjs/#reveal-js-options
     const asciidoctor_reveal_js: Asciidoctor.Attributes = {
@@ -64,29 +65,36 @@ const writePresentation = (options: ScribeOptions) => {
     const asciidoctor_options: Asciidoctor.ProcessorOptions = {
         safe: 'safe',
         backend: 'revealjs',
-        base_dir: options.base_dir,
+        base_dir: resolve(process.cwd(), options.base_dir),
         to_dir: options.out_dir,
         mkdirs: true,
         attributes: Object.assign({}, own, asciidoctor_reveal_js)
     };
     const asciidoctor = asciidoctorFactory();
     asciidoctorRevealjs.register();
-    asciidoctor.convertFile('slides/presentation.adoc', asciidoctor_options);
+    asciidoctor.convertFile(resolve(process.cwd(), options.base_dir, 'slides/presentation.adoc'), asciidoctor_options);
 };
 
 export const present = (options: ScribeOptions) => {
     const browserSync = create('presentation');
+    const startPath = join(options.base_dir, options.out_dir, 'presentation.html');
+    console.log('hello', startPath)
     browserSync.init({
+        logLevel: "info",
         server: true,
         online: false,
         ui: false,
-        startPath: 'out/presentation.html',
+        startPath,
         watchEvents: ['add'],
         logFileChanges: true
     });
 
     if (options.watch) {
-        chokidar.watch(['slides/*.adoc', 'styles/*.css', 'images/*'])
+        chokidar.watch([
+            resolve(process.cwd(), options.base_dir, 'slides') + '/*.adoc',
+            resolve(process.cwd(), options.base_dir, 'styles') + '/*.css',
+            resolve(process.cwd(), options.base_dir, 'images') + '/*'
+        ])
             .on('all', (_event, _path) => {
                 writePresentation(options);
                 browserSync.reload();

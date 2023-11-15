@@ -1,0 +1,13 @@
+:icons: font
+:linkattrs:
+:slides: .
+:imagedir: ../images
+:customcss: ../styles/custom.css
+= The Topic
+
+[%notitle]
+== Slide One
+image::{imagedir}/hello.png[canvas,size=contain]
+
+include::{slides}/02.adoc[]
+include::{slides}/03-custom-css.adoc[]
