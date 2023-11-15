@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { present } from './scribe'
-
 import { longFormArgumentFrom, longFormFlagFrom } from './argument-parser'
 
 const base_dir = longFormArgumentFrom(process.argv, 'base-dir', './')
