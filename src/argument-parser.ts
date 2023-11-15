@@ -1,9 +1,14 @@
 export const longFormArgumentFrom = (args: string[], name: string, fallback: string) => {
-  const found = args.findIndex((value) => value === `--${name}`)
+  const argLong = `--${name}`
+  const found = args.findIndex((value) => value === argLong)
   if (found === -1) {
     return fallback
   }
-  return args[found + 1]
+  const arg = args[found + 1]
+  if (arg === undefined) {
+    throw new Error(`${argLong} needs an argument`)
+  }
+  return arg
 }
 
 export const longFormFlagFrom = (args: string[], name: string, fallback: boolean) => {
