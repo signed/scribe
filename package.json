@@ -28,8 +28,7 @@
     "@asciidoctor/core": "2.2.6",
     "@asciidoctor/reveal.js": "4.1.0",
     "browser-sync": "2.29.3",
-    "chokidar": "3.5.3",
-    "fs-extra": "11.1.1"
+    "chokidar": "3.5.3"
   },
   "devDependencies": {
     "@signed/prettier-config": "0.1.0",

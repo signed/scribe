@@ -1,8 +1,8 @@
 import { join, resolve } from 'node:path'
+import { rmSync } from 'node:fs'
 import type { Asciidoctor } from '@asciidoctor/core'
 import asciidoctorFactory from '@asciidoctor/core'
 import * as chokidar from 'chokidar'
-import * as fs from 'fs-extra'
 import { create } from 'browser-sync'
 import * as asciidoctorRevealjs from '@asciidoctor/reveal.js'
 
@@ -47,7 +47,7 @@ enum Theme {
 }
 
 const writePresentation = (options: ScribeOptions) => {
-  fs.removeSync(resolve(process.cwd(), options.base_dir, options.out_dir))
+  rmSync(resolve(process.cwd(), options.base_dir, options.out_dir), { force: true, recursive: true })
 
   // https://asciidoctor.org/docs/asciidoctor-revealjs/#reveal-js-options
   const asciidoctor_reveal_js: Asciidoctor.Attributes = {
