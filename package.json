@@ -32,6 +32,8 @@
   },
   "devDependencies": {
     "@signed/prettier-config": "0.1.0",
+    "@tsconfig/node21": "21.0.0",
+    "@tsconfig/strictest": "2.0.2",
     "@types/browser-sync": "2.27.4",
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.9.0",

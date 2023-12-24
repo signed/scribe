@@ -1,11 +1,8 @@
 {
+  "extends": ["@tsconfig/node21/tsconfig.json", "@tsconfig/strictest/tsconfig.json"],
   "compilerOptions": {
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
+    "module": "commonJS",
     "moduleResolution": "node",
-    "downlevelIteration": true,
-    "target": "es2017",
     "outDir": "dist"
   },
   "include": ["src/**/*"]
