@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@asciidoctor/cli@^3.1.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@asciidoctor/cli/-/cli-3.5.0.tgz#0b0a0204880b325971fb2af33bf490ab67672d8f"
-  integrity sha512-/VMHXcZBnZ9vgWfmqk9Hu0x0gMjPLup0YGq/xA8qCQuk11kUIZNMVQwgSsIUzOEwJqIUD7CgncJdtfwv1Ndxuw==
+"@asciidoctor/cli@~4.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@asciidoctor/cli/-/cli-4.0.0.tgz#d268923f5b384c1e783f1efc79ae53f4acf83dec"
+  integrity sha512-x2T9gW42921Zd90juEagtbViPZHNP2MWf0+6rJEkOzW7E9m3TGJtz+Guye9J0gwrpZsTMGCpfYMQy1We3X7osg==
   dependencies:
-    yargs "16.2.0"
+    yargs "17.3.1"
 
 "@asciidoctor/core@3.0.2":
   version "3.0.2"
@@ -25,13 +25,13 @@
     glob "8.1.0"
     unxhr "1.2.0"
 
-"@asciidoctor/reveal.js@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@asciidoctor/reveal.js/-/reveal.js-5.0.1.tgz#ad83b2cd3add507b230404a2cbc333a57526ef69"
-  integrity sha512-eKZiT7/0eD2TufaDLP1nO7dW1BYnmDuuBmd1/Ti3RAHaXNAG8H35fehmpS5es4c5SV7oRe6jrqGThCM1GVgLQA==
+"@asciidoctor/reveal.js@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@asciidoctor/reveal.js/-/reveal.js-5.1.0.tgz#bd5eca8d36be5daa52683f428d7bbcd6ff5c7226"
+  integrity sha512-L9kwdbkYrKctI1+zfL4qP02l1EiJIvO5BhaSEAeodlbxsRBeooYNxmppYndq+ikV4Du3+fCvEVe0QBa5ljyRjw==
   dependencies:
-    "@asciidoctor/cli" "^3.1.0"
-    reveal.js "4.1.2"
+    "@asciidoctor/cli" "~4.0"
+    reveal.js "4.5.0"
 
 "@esbuild/android-arm64@0.18.20":
   version "0.18.20"
@@ -1235,10 +1235,10 @@ resp-modifier@6.0.2:
     debug "^2.2.0"
     minimatch "^3.0.2"
 
-reveal.js@4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.1.2.tgz#3e214c2020fd3f7ec6b6f8005ee55c3029c4b0ca"
-  integrity sha512-g4w3rD50qLTF7tHm4XGnRGCPqncCDtJ+SJpa1H+pbJLuUgi+qrEYkAA0+cJOrXs4DatZN4dS5q39C6304EIrbw==
+reveal.js@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.5.0.tgz#fc04329aee58dd88862bf1f8e8f85f7993287763"
+  integrity sha512-Lx1hUWhJR7Y7ScQNyGt7TFzxeviDAswK2B0cn9RwbPZogTMRgS8+FTr+/12KNHOegjvWKH0H0EGwBARNDPTgWQ==
 
 rollup@^3.27.1:
   version "3.29.4"
@@ -1628,19 +1628,6 @@ yargs-parser@^21.0.0:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
   integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
-yargs@16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
-  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.0"
-    y18n "^5.0.5"
-    yargs-parser "^20.2.2"
-
 yargs@17.1.1:
   version "17.1.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.1.1.tgz#c2a8091564bdb196f7c0a67c1d12e5b85b8067ba"
@@ -1653,6 +1640,19 @@ yargs@17.1.1:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+yargs@17.3.1:
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.3.1.tgz#da56b28f32e2fd45aefb402ed9c26f42be4c07b9"
+  integrity sha512-WUANQeVgjLbNsEmGk20f+nlHgOqzRFpiGWVaBrYGYIGANIIu3lWjoyi0fNlFmJkvfhCZ6BXINe7/W2O2bV4iaA==
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.3"
+    y18n "^5.0.5"
+    yargs-parser "^21.0.0"
 
 yargs@^17.3.1:
   version "17.5.1"
