@@ -1,5 +1,6 @@
 {
   "name": "@signed/scribe",
+  "packageManager": "pnpm@8.12.1",
   "version": "0.4.0",
   "description": "Live reload your reveal.js presentation when editing your asciidoc slides",
   "repository": "https://github.com/signed/scribe.git",
@@ -17,12 +18,12 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "yarn run build",
+    "prepublishOnly": "pnpm run build",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
     "present": "tsx src/cli.ts --base-dir example",
     "format": "prettier --write .",
-    "nitpick": "yarn test && yarn typecheck"
+    "nitpick": "pnpm test && pnpm typecheck"
   },
   "dependencies": {
     "@asciidoctor/core": "3.0.2",
