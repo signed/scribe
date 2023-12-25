@@ -1,9 +1,9 @@
 import { join, resolve } from 'node:path'
 import { rmSync } from 'node:fs'
-import asciidoctorFactory, {type Asciidoctor} from '@asciidoctor/core';
+import asciidoctorFactory, { type Asciidoctor } from '@asciidoctor/core'
 import * as chokidar from 'chokidar'
 import { create } from 'browser-sync'
-import * as asciidoctorRevealjs from '@asciidoctor/reveal.js'
+import asciidoctorRevealjs from '@asciidoctor/reveal.js'
 
 export interface ScribeOptions {
   watch: boolean
@@ -64,7 +64,7 @@ const writePresentation = (options: ScribeOptions) => {
 
   // These are the same as for the ruby version
   // http://asciidoctor.org/docs/user-manual/#ruby-api-options
-    const asciidoctor_options: ProcessorOptions = {
+  const asciidoctor_options: ProcessorOptions = {
     safe: 'safe',
     backend: 'revealjs',
     base_dir: resolve(process.cwd(), options.base_dir),

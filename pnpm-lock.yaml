@@ -4,10 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@asciidoctor/core@3.0.2':
+    hash: h2ddls63nrtvfrgsrdzyk6yjcy
+    path: patches/@asciidoctor__core@3.0.2.patch
+
 dependencies:
   '@asciidoctor/core':
     specifier: 3.0.2
-    version: 3.0.2
+    version: 3.0.2(patch_hash=h2ddls63nrtvfrgsrdzyk6yjcy)
   '@asciidoctor/reveal.js':
     specifier: 5.1.0
     version: 5.1.0(@asciidoctor/core@3.0.2)
@@ -59,17 +64,18 @@ packages:
     peerDependencies:
       '@asciidoctor/core': '>=2 <4'
     dependencies:
-      '@asciidoctor/core': 3.0.2
+      '@asciidoctor/core': 3.0.2(patch_hash=h2ddls63nrtvfrgsrdzyk6yjcy)
       yargs: 17.3.1
     dev: false
 
-  /@asciidoctor/core@3.0.2:
+  /@asciidoctor/core@3.0.2(patch_hash=h2ddls63nrtvfrgsrdzyk6yjcy):
     resolution: {integrity: sha512-GbQWpqLlM/kN+90QrlLYISdU/vbGkUSeHsBQR9BzYNmVHDd6CEb/xfQZIFUo//EtT7e+QS3Sv3yYDzgjr96TbA==}
     engines: {node: '>=16', npm: '>=8'}
     dependencies:
       '@asciidoctor/opal-runtime': 3.0.1
       unxhr: 1.2.0
     dev: false
+    patched: true
 
   /@asciidoctor/opal-runtime@3.0.1:
     resolution: {integrity: sha512-iW7ACahOG0zZft4A/4CqDcc7JX+fWRNjV5tFAVkNCzwZD+EnFolPaUOPYt8jzadc0+Bgd80cQTtRMQnaaV1kkg==}

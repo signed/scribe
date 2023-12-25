@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { present } from './scribe'
-import { longFormArgumentFrom, longFormFlagFrom } from './argument-parser'
+import { present } from './scribe.js'
+import { longFormArgumentFrom, longFormFlagFrom } from './argument-parser.js'
 
 const base_dir = longFormArgumentFrom(process.argv, 'base-dir', './')
 const out_dir = longFormArgumentFrom(process.argv, 'out-dir', './out')

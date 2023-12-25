@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { longFormArgumentFrom, longFormFlagFrom } from './argument-parser'
+import { longFormArgumentFrom, longFormFlagFrom } from './argument-parser.js'
 
 describe('extract long form argument', () => {
   test('existing', () => {

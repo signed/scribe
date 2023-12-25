@@ -1,0 +1,12 @@
+diff --git a/package.json b/package.json
+index 40450b3ab970c0b95242e738a9fa5e5dd23b3f3a..e04b0b3405592cbabd4026fe24d4fbc05d195668 100644
+--- a/package.json
++++ b/package.json
+@@ -8,6 +8,7 @@
+   "module": "dist/browser/asciidoctor.js",
+   "exports": {
+     "node": {
++      "types": "./types/index.d.ts",
+       "import": "./dist/node/asciidoctor.js",
+       "require": "./dist/node/asciidoctor.cjs"
+     },
