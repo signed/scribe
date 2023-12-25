@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist example/out",
     "prepublishOnly": "pnpm clean && pnpm run build",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
