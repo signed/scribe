@@ -25,7 +25,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "pnpm run build",
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm clean && pnpm run build",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
     "present": "tsx src/cli.ts --base-dir example",
@@ -46,6 +47,7 @@
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.10.5",
     "prettier": "3.1.1",
+    "rimraf": "5.0.5",
     "tsx": "4.7.0",
     "typescript": "5.3.3",
     "vitest": "1.1.0"
