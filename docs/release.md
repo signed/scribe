@@ -4,6 +4,6 @@ Manual releases for now
 
 ```
 pnpm login --registry https://registry.npmjs.org
-pnpm publish --registry https://registry.npmjs.org --no-git-checks --access public --tag beta --new-version 0.4.0 --dry-run 
-pnpm dist-tag add @signed/scribe@0.4.0 latest
+pnpm publish --registry https://registry.npmjs.org --no-git-checks --access public --tag beta --new-version 0.5.0 --dry-run 
+pnpm dist-tag add @signed/scribe@0.5.0 latest
 ```
