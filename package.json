@@ -18,7 +18,10 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "executableFiles": [
+      "./dist/cli.js"
+    ]
   },
   "scripts": {
     "build": "tsc",
