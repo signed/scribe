@@ -1,0 +1,88 @@
+# sample https://github.com/JoshuaKGoldberg/create-typescript-app/blob/f12451821d64b6e3ac00d0d1fdc307d4c992e162/.github/workflows/release.yml#L16-L18
+name: ManualRelease
+concurrency:
+  group: ${{ github.workflow }} # only run a single release job at a time
+
+permissions:
+  contents: write # allow to push the updated package.json
+
+run-name: ${{ inputs.DryRun && 'Dry-Run' || 'Publish release' }} ${{ inputs.Release }} as ${{ inputs.Increment }}
+
+env:
+  MAYBE_DRY_RUN_ARGUMENTS: ${{ inputs.DryRun && '--dry-run --release-version' || '' }}
+
+defaults:
+  run:
+    working-directory: prettier-config
+on:
+  workflow_dispatch:
+    inputs:
+      Release:
+        description: 'Release'
+        required: true
+        type: choice
+        default: 'next'
+        options:
+          - next
+          - start-beta
+          - continue-beta
+      Increment:
+        description: 'Semver Increment'
+        required: true
+        type: choice
+        default: 'minor'
+        options:
+          - minor
+          - patch
+          - major
+      DryRun:
+        description: 'Dry Run'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          # cache: pnpm
+          node-version: 20
+
+      - run: pnpm install --frozen-lockfile
+        shell: bash
+
+      - name: Setup Git User
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR_ID}+${GITHUB_TRIGGERING_ACTOR}@users.noreply.github.com"
+
+      - run: pnpm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Start Beta-Release
+        if: inputs.Release == 'start-beta'
+        run: pnpm run release-it ${{ inputs.Increment }} --preRelease=beta --ci ${{ env.MAYBE_DRY_RUN_ARGUMENTS }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Continue Beta-Release
+        if: inputs.Release == 'continue-beta'
+        run: pnpm run release-it --preRelease --ci ${{ env.MAYBE_DRY_RUN_ARGUMENTS }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Next Release
+        if: inputs.Release == 'next'
+        run: pnpm run release-it --increment ${{ inputs.Increment }} --ci ${{ env.MAYBE_DRY_RUN_ARGUMENTS }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add link to npm
+        if: ${{ ! inputs.DryRun }}
+        run: |
+          echo "[@signed/scribe](https://www.npmjs.com/package/@signed/scribe?activeTab=versions)" >> $GITHUB_STEP_SUMMARY          
