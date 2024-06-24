@@ -31,7 +31,8 @@
     "typecheck": "tsc --noEmit",
     "present": "tsx src/cli.ts --base-dir example",
     "format": "prettier --write .",
-    "nitpick": "pnpm test && pnpm typecheck"
+    "nitpick": "pnpm test && pnpm typecheck",
+    "release-it": "release-it --config .release-it.cjs"
   },
   "dependencies": {
     "@asciidoctor/core": "3.0.4",
