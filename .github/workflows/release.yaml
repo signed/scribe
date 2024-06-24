@@ -11,9 +11,6 @@ run-name: ${{ inputs.DryRun && 'Dry-Run' || 'Publish release' }} ${{ inputs.Rele
 env:
   MAYBE_DRY_RUN_ARGUMENTS: ${{ inputs.DryRun && '--dry-run --release-version' || '' }}
 
-defaults:
-  run:
-    working-directory: prettier-config
 on:
   workflow_dispatch:
     inputs:
