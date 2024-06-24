@@ -34,7 +34,7 @@
     "nitpick": "pnpm test && pnpm typecheck"
   },
   "dependencies": {
-    "@asciidoctor/core": "3.0.2",
+    "@asciidoctor/core": "3.0.4",
     "@asciidoctor/reveal.js": "5.1.0",
     "browser-sync": "2.29.3",
     "chokidar": "3.5.3"
@@ -52,10 +52,5 @@
     "typescript": "5.3.3",
     "vitest": "1.1.0"
   },
-  "prettier": "@signed/prettier-config",
-  "pnpm": {
-    "patchedDependencies": {
-      "@asciidoctor/core@3.0.2": "patches/@asciidoctor__core@3.0.2.patch"
-    }
-  }
+  "prettier": "@signed/prettier-config"
 }
