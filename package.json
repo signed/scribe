@@ -37,7 +37,7 @@
     "@asciidoctor/core": "3.0.4",
     "@asciidoctor/reveal.js": "5.1.0",
     "browser-sync": "2.29.3",
-    "chokidar": "3.5.3"
+    "chokidar": "3.6.0"
   },
   "devDependencies": {
     "@signed/prettier-config": "0.2.0",
