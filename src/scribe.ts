@@ -93,11 +93,12 @@ export const present = (options: ScribeOptions) => {
   })
 
   if (options.watch) {
+    // https://github.com/paulmillr/chokidar?tab=readme-ov-file#upgrading
     chokidar
       .watch([
-        resolve(process.cwd(), options.base_dir, 'slides') + '/*.adoc',
-        resolve(process.cwd(), options.base_dir, 'styles') + '/*.css',
-        resolve(process.cwd(), options.base_dir, 'images') + '/*',
+        resolve(process.cwd(), options.base_dir, 'slides'),
+        resolve(process.cwd(), options.base_dir, 'styles'),
+        resolve(process.cwd(), options.base_dir, 'images'),
       ])
       .on('all', (_event, _path) => {
         writePresentation(options)
