@@ -82,4 +82,4 @@ jobs:
       - name: Add link to npm
         if: ${{ ! inputs.DryRun }}
         run: |
-          echo "[@signed/scribe](https://www.npmjs.com/package/@signed/scribe?activeTab=versions)" >> $GITHUB_STEP_SUMMARY          
+          echo "[@signed/scribe](https://www.npmjs.com/package/@signed/scribe?activeTab=versions)" >> $GITHUB_STEP_SUMMARY
